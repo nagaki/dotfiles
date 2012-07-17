@@ -1,13 +1,3 @@
 # gitignore
-
-# All files ignore
-/*
-
-# All dotfiles ignore
-/.*
-
-# do not ignore files
-!/.vimrc
-!/.gitignore
-!/.gvimrc
+.vim/bundle/
 
