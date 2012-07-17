@@ -1,5 +1,4 @@
 set nocompatible
-colorscheme desert
 
 filetype off
 filetype plugin indent off
@@ -62,3 +61,5 @@ endif
 autocmd BufWritePre * :%s/\s\+$//ge
 autocmd BufWritePre * ;%s/\t/ /ge
 
+syntax enable
+colorscheme desert
