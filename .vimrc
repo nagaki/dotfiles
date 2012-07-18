@@ -9,11 +9,11 @@ if has('vim_starting')
 endif
 
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'fugalh/desert.vim'
-NeoBundle 'smarty.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'joonty/vim-xdebug'
 
