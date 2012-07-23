@@ -36,7 +36,7 @@ set encoding=utf-8
 set cursorline
 set number
 set title
-set lines=40 columns=120
+"set lines=40 columns=120
 set scrolloff=999
 
 set tabstop=2
@@ -63,3 +63,6 @@ autocmd BufWritePre * ;%s/\t/ /ge
 
 syntax enable
 colorscheme desert
+
+nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
+
