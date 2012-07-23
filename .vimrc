@@ -52,6 +52,8 @@ set noswapfile
 set list
 set listchars=tab:^_
 
+set backspace=indent,eol,start
+
 set whichwrap=b,s,h,s,<,>,[,]
 
 if has('mouse')
