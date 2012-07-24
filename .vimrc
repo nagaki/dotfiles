@@ -36,7 +36,7 @@ set encoding=utf-8
 set cursorline
 set number
 set title
-set lines=40 columns=120
+"set lines=40 columns=120
 set scrolloff=999
 
 set tabstop=2
