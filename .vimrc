@@ -69,4 +69,3 @@ colorscheme desert
 
 nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
 
-
