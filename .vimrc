@@ -64,8 +64,8 @@ endif
 autocmd BufWritePre * :%s/\s\+$//ge
 autocmd BufWritePre * ;%s/\t/ /ge
 
-syntax enable
 colorscheme desert
+syntax enable
 
 nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
 
