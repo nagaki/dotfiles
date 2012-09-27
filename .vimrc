@@ -34,6 +34,10 @@ NeoBundle 'thinca/vim-quickrun'
 
 "デバッグ
 NeoBundle 'joonty/vim-xdebug'
+NeoBundle 'scrooloose/syntastic'
+
+"ステータスライン
+NeoBundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on
 
@@ -42,6 +46,8 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
+
+"シンタックスチェック
 
 "HTMLとPHPの閉じタグの自動入力
 augroup MyXML
@@ -57,6 +63,7 @@ autocmd BufRead,BufNewFile *.tpl set filetype=html
 set encoding=utf-8
 set cursorline
 set number
+set laststatus=2
 set title
 set scrolloff=999
 set tabstop=2
@@ -112,33 +119,5 @@ endif
 "quickrun.vimを横分割で開く
 let g:quickrun_config={'*': {'split': ''}}
 
-"ステータスラインのカラー設定（モード変更時）
-let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
-
-if has('syntax')
-  augroup InsertHook
-    autocmd!
-    autocmd InsertEnter * call s:StatusLine('Enter')
-    autocmd InsertLeave * call s:StatusLine('Leave')
-  augroup END
-endif
-
-let s:slhlcmd = ''
-function! s:StatusLine(mode)
-  if a:mode == 'Enter'
-    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-    silent exec g:hi_insert
-  else
-    highlight clear StatusLine
-    silent exec s:slhlcmd
-  endif
-endfunction
-
-function! s:GetHighlight(hi)
-  redir => hl
-  exec 'highlight '.a:hi
-  redir END
-  let hl = substitute(hl, '[\r\n]', '', 'g')
-  let hl = substitute(hl, 'xxx', '', '')
-  return hl
-endfunction
+"Powerlineのフォント設定
+"let g:Powerline_symbols = 'fancy'
