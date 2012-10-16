@@ -9,6 +9,9 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
+"ステータスライン
+NeoBundle 'Lokaltog/vim-powerline'
+
 "ファイラ〜
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
@@ -36,9 +39,6 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'joonty/vim-xdebug'
 NeoBundle 'scrooloose/syntastic'
 
-"ステータスライン
-NeoBundle 'Lokaltog/vim-powerline'
-
 filetype plugin indent on
 
 "neocomplcache補完の設定
@@ -52,8 +52,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 "HTMLとPHPの閉じタグの自動入力
 augroup MyXML
   autocmd!
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype php inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html,xml inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 ".tplのファイルを.htmlとして扱う
@@ -104,7 +103,7 @@ syntax enable
 noremap ; :
 
 "Ctrl+fでVimFilerを開く
-nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=40 -toggle -no-quit<CR>
+nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=30 -toggle -no-quit<CR>
 
 "RSenseの設定
 if !exists('g:neocomplcache_omni_patterns')
@@ -118,6 +117,3 @@ endif
 
 "quickrun.vimを横分割で開く
 let g:quickrun_config={'*': {'split': ''}}
-
-"Powerlineのフォント設定
-"let g:Powerline_symbols = 'fancy'

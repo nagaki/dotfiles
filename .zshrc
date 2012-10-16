@@ -1,6 +1,13 @@
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 export RSENSE_HOME=/usr/local/Cellar/rsense/0.3/libexec
+
+# autojumpの設定
+#[[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] &&
+source ~/.autojump/etc/profile.d/autojump.zsh
+
+# 補完
+autoload -U compinit; compinit
 
 # エディタ設定
 export EDITOR=vim
@@ -27,12 +34,8 @@ setopt hist_ignore_dups
 # 共有
 setopt share_history
 
-
 # ディレクトリ名のみで移動可能
 setopt auto_cd
-
-# 補完
-autoload -U compinit; compinit
 
 # カラースキーム
 export LSCOLORS=Exfxcxdxbxegedabagacad
