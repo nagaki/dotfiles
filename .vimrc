@@ -58,29 +58,30 @@ augroup END
 ".tplのファイルを.htmlとして扱う
 autocmd BufRead,BufNewFile *.tpl set filetype=html
 
-"基本設定
-set encoding=utf-8
+"オプション設定
+set ambiwidth=double
+set autoindent
+set backspace=indent,eol,start
 set cursorline
+set encoding=utf-8
+set expandtab
 set number
 set laststatus=2
-set title
-set scrolloff=999
-set tabstop=2
-set shiftwidth=2
-set softtabstop=0
-set autoindent
-set expandtab
-set smartcase
-set nowrap
-set nobackup
-set noswapfile
 set list
 set listchars=tab:^_
-set backspace=indent,eol,start
-set whichwrap=b,s,h,s,<,>,[,]
+set nobackup
+set noswapfile
+set nowrap
+set scrolloff=999
+set shiftwidth=2
+set smartcase
+set smartindent
+set softtabstop=0
 set splitbelow
 set splitright
-set ambiwidth=double
+set title
+set tabstop=2
+set whichwrap=b,s,h,s,<,>,[,]
 
 "マウスを使用できるようにする
 if has('mouse')
