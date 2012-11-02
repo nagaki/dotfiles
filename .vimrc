@@ -61,6 +61,16 @@ augroup MyXML
   autocmd Filetype html,xml inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
+function Erb_Completion()
+  if matchstr(getline('.'), '.', col('.') -1 ) == ">"
+    return "\%\%\<Left>"
+  else
+    return "\%"
+  end
+endf
+inoremap <expr> % Erb_Completion()
+
+
 "前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
