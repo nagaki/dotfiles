@@ -18,7 +18,7 @@ NeoBundle 'Shougo/vimfiler'
 
 "補完
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neosnippet'
 
 "コーディング
 NeoBundle 'mattn/zencoding-vim'
@@ -27,7 +27,8 @@ NeoBundle 'AutoClose'
 NeoBundle 'surround.vim'
 
 "カラースキーム
-NeoBundle 'fugalh/desert.vim'
+NeoBundle 'molokai'
+NeoBundle 'altercation/vim-colors-solarized'
 
 "Ruby on Rails開発
 NeoBundle 'taichouchou2/vim-rails'
@@ -36,8 +37,13 @@ NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'thinca/vim-quickrun'
 
 "デバッグ
-NeoBundle 'joonty/vim-xdebug'
+"NeoBundle 'joonty/vim-xdebug'
+
+"シンタックスチェック
 NeoBundle 'scrooloose/syntastic'
+
+"Github
+NeoBundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
@@ -55,8 +61,14 @@ augroup MyXML
   autocmd Filetype html,xml inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
+"前回終了したカーソル行に移動
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
 ".tplのファイルを.htmlとして扱う
 autocmd BufRead,BufNewFile *.tpl set filetype=html
+
+"WordPress用の関数辞書の場所を設定
+autocmd FileType php :set dictionary=~/.vim/dict/wordpress.dict
 
 "オプション設定
 set ambiwidth=double
@@ -88,6 +100,9 @@ if has('mouse')
   set mouse=a
 endif
 
+"シンタックス有効
+syntax enable
+
 "保存時に行末のスペースを削除
 autocmd BufWritePre * :%s/\s\+$//ge
 
@@ -95,10 +110,10 @@ autocmd BufWritePre * :%s/\s\+$//ge
 autocmd BufWritePre * ;%s/\t/  /ge
 
 "カラースキーマ設定
-colorscheme desert
+colorscheme molokai
 
-"シンタックス有効
-syntax enable
+"PowerLineの設定
+let g:Powerline_symbols = 'fancy'
 
 "vimコマンド時、;:をshiftなしで:に統一する
 noremap ; :

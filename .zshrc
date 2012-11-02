@@ -1,5 +1,8 @@
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+# Homebrewで入れたvimを使う
+alias vim=/usr/local/bin/vim
+
 export RSENSE_HOME=/usr/local/Cellar/rsense/0.3/libexec
 
 # autojumpの設定
