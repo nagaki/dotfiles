@@ -25,9 +25,9 @@ NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'AutoClose'
 NeoBundle 'surround.vim'
+NeoBundle 'jQuery'
 
 "カラースキーム
-NeoBundle 'molokai'
 NeoBundle 'altercation/vim-colors-solarized'
 
 "Ruby on Rails開発
@@ -66,6 +66,9 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 
 ".tplのファイルを.htmlとして扱う
 autocmd BufRead,BufNewFile *.tpl set filetype=html
+
+"jQueryファイルを.jsとして扱う
+autocmd BufRead,BufNewFile jquery.*.js set filetype=js syntax=javascript
 
 "WordPress用の関数辞書の場所を設定
 autocmd FileType php :set dictionary=~/.vim/dict/wordpress.dict
@@ -110,7 +113,7 @@ autocmd BufWritePre * :%s/\s\+$//ge
 autocmd BufWritePre * ;%s/\t/  /ge
 
 "カラースキーマ設定
-colorscheme molokai
+colorscheme desert
 
 "PowerLineの設定
 let g:Powerline_symbols = 'fancy'
@@ -133,3 +136,4 @@ endif
 
 "quickrun.vimを横分割で開く
 let g:quickrun_config={'*': {'split': ''}}
+

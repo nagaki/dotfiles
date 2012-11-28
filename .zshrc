@@ -1,7 +1,7 @@
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Homebrewで入れたvimを使う
-alias vim=/usr/local/bin/vim
+#alias vim=/usr/local/bin/vim
 
 export RSENSE_HOME=/usr/local/Cellar/rsense/0.3/libexec
 
@@ -48,6 +48,7 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 
 # エイリアス
 alias la='ls -a'
+alias ll='ls -al'
 
 # ビープ音を鳴らさない
 setopt nobeep
