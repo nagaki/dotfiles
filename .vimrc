@@ -29,6 +29,7 @@ NeoBundle 'jQuery'
 
 "カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'nginx.vim'
 
 "Ruby on Rails開発
 NeoBundle 'taichouchou2/vim-rails'
@@ -40,10 +41,13 @@ NeoBundle 'thinca/vim-quickrun'
 "NeoBundle 'joonty/vim-xdebug'
 
 "シンタックスチェック
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 
 "Github
 NeoBundle 'tpope/vim-fugitive'
+
+"Sudo
+NeoBundle 'sudo.vim'
 
 filetype plugin indent on
 
@@ -112,6 +116,8 @@ autocmd BufWritePre * :%s/\s\+$//ge
 "保存時にタブをスペースに変換
 autocmd BufWritePre * ;%s/\t/  /ge
 
+autocmd BufRead,BufNewFile /usr/local/etc/nginx/* set ft=nginx
+
 "カラースキーマ設定
 colorscheme desert
 
@@ -122,7 +128,7 @@ let g:Powerline_symbols = 'fancy'
 noremap ; :
 
 "Ctrl+fでVimFilerを開く
-nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=30 -toggle -no-quit<CR>
+nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=30 -toggle -no-quit -simple<CR>
 
 "RSenseの設定
 if !exists('g:neocomplcache_omni_patterns')
