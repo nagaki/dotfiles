@@ -12,7 +12,7 @@ endif
 "ステータスライン
 NeoBundle 'Lokaltog/vim-powerline'
 
-"ファイラ〜
+"ファイラ
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 
@@ -37,11 +37,8 @@ NeoBundle 'romanvbabenko/rails.vim'
 NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'thinca/vim-quickrun'
 
-"デバッグ
-"NeoBundle 'joonty/vim-xdebug'
-
 "シンタックスチェック
-"NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 
 "Github
 NeoBundle 'tpope/vim-fugitive'
@@ -57,12 +54,10 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 
-"シンタックスチェック
-
 "HTMLとPHPの閉じタグの自動入力
 augroup MyXML
   autocmd!
-  autocmd Filetype html,xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 "前回終了したカーソル行に移動
@@ -102,10 +97,10 @@ set title
 set tabstop=2
 set whichwrap=b,s,h,s,<,>,[,]
 
-"マウスを使用できるようにする
-if has('mouse')
-  set mouse=a
-endif
+""マウスを使用できるようにする
+"if has('mouse')
+"  set mouse=a
+"endif
 
 "シンタックス有効
 syntax enable
@@ -116,6 +111,7 @@ autocmd BufWritePre * :%s/\s\+$//ge
 "保存時にタブをスペースに変換
 autocmd BufWritePre * ;%s/\t/  /ge
 
+"Nginx設定ファイルのシンタックス有効化
 autocmd BufRead,BufNewFile /usr/local/etc/nginx/* set ft=nginx
 
 "カラースキーマ設定
@@ -130,16 +126,10 @@ noremap ; :
 "Ctrl+fでVimFilerを開く
 nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=30 -toggle -no-quit -simple<CR>
 
-"RSenseの設定
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:rsenseUseOmniFunc = 1
-if filereadable(expand('/usr/local/Cellar/rsense/0.3/libexec/bin/rsense'))
-  let g:rsenseHome = expand('/usr/local/Cellar/rsense/0.3/libexec')
-  let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-endif
-
 "quickrun.vimを横分割で開く
-let g:quickrun_config={'*': {'split': ''}}
+let g:quickrun_config = { '_' : { 'outputter/buffer/split' : 'botright 8sp' } }
 
+"NeoSnippet
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
