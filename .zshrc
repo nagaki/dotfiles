@@ -1,8 +1,5 @@
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 # autojumpの設定
-#[[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] &&
-source ~/.autojump/etc/profile.d/autojump.zsh
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # 補完
 autoload -U compinit; compinit
