@@ -34,6 +34,8 @@ NeoBundle 'nginx.vim'
 "Ruby on Rails開発
 NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'kchmck/vim-coffee-script'
 
 "シンタックスチェック
 NeoBundle 'scrooloose/syntastic'
