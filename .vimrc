@@ -18,7 +18,6 @@ NeoBundle 'Shougo/vimfiler'
 
 "補完
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
 
 "コーディング
 NeoBundle 'mattn/emmet-vim'
@@ -26,6 +25,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'AutoClose'
 NeoBundle 'surround.vim'
 NeoBundle 'jQuery'
+NeoBundle 'pangloss/vim-javascript'
 
 "カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
@@ -33,7 +33,6 @@ NeoBundle 'nginx.vim'
 
 "Ruby on Rails開発
 NeoBundle 'tpope/vim-endwise.git'
-NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'kchmck/vim-coffee-script'
 
@@ -87,7 +86,8 @@ augroup HighLight
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile *.tpl set filetype=html
   autocmd BufRead,BufNewFile jquery.*.js set filetype=js syntax=javascript
-  autocmd BufRead,BufNewFile /usr/local/etc/nginx/* set ft=nginx
+  autocmd BufRead,BufNewFile /usr/local/etc/nginx/*.conf set ft=nginx
+  autocmd BufRead,BufNewFile /usr/local/etc/nginx/conf.d/*.conf set ft=nginx
 augroup END
 
 "HTMLとPHPの閉じタグの自動入力
@@ -115,7 +115,7 @@ colorscheme desert
 noremap ; :
 
 "Ctrl+fでVimFilerを開く
-nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=30 -toggle -no-quit -simple<CR>
+nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=36 -toggle -no-quit -simple<CR>
 
 "airlineの設定
 let g:airline_powerline_fonts=1
@@ -132,16 +132,8 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
-"quickrun.vimを横分割で開く
-let g:quickrun_config = { '_' : { 'outputter/buffer/split' : 'botright 8sp' } }
-
 "Emmet lang
 let g:user_emmet_settings = { 'lang' : 'ja' }
-
-"NeoSnippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 "Clipboard Copy
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
