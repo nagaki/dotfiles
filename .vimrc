@@ -115,7 +115,7 @@ colorscheme desert
 noremap ; :
 
 "Ctrl+fでVimFilerを開く
-nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=36 -toggle -no-quit -simple<CR>
+nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=32 -toggle -no-quit -simple<CR>:set nu!<CR>
 
 "airlineの設定
 let g:airline_powerline_fonts=1
