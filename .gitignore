@@ -1,2 +1,13 @@
-# gitignore
-.vim/
+# OS X
+.DS_Store
+
+# Jekyll
+_site/
+
+# rbenv
+/.bundle
+/vendor/bundle
+.ruby-version
+
+# Ruby
+Gemfile.lock
