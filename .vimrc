@@ -87,6 +87,7 @@ augroup HighLight
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile *.tpl set filetype=html
   autocmd BufRead,BufNewFile jquery.*.js set filetype=js syntax=javascript
+  autocmd BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
   autocmd BufRead,BufNewFile /usr/local/etc/nginx/* set ft=nginx
 augroup END
 
@@ -115,7 +116,7 @@ colorscheme desert
 noremap ; :
 
 "Ctrl+fでVimFilerを開く
-nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=30 -toggle -no-quit -simple<CR>
+nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=34 -toggle -no-quit -simple<CR>
 
 "airlineの設定
 let g:airline_powerline_fonts=1
@@ -146,3 +147,4 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 "Clipboard Copy
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
 
+let g:syntastic_html_tidy_ignore_errors = ['trimming empty <span>', 'trimming empty <i>']
