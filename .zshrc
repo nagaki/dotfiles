@@ -47,3 +47,6 @@ setopt nobeep
 
 # 右プロンプトの表示
 RPROMPT="[%~]"
+
+# Terminal notifier
+export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10

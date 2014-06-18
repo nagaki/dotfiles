@@ -4,7 +4,11 @@
 # Jekyll
 _site/
 
+# Sass
+.sass-cache/
+
 # rbenv
+/bin
 /.bundle
 /vendor/bundle
 .ruby-version
