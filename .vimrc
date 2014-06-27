@@ -39,6 +39,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 
 "シンタックスチェック
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'hail2u/vim-css3-syntax'
 
 "Git
 NeoBundle 'tpope/vim-fugitive'
