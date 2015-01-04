@@ -41,6 +41,7 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 # エイリアス
 alias la='ls -a'
 alias ll='ls -al'
+alias c='clear'
 
 # ビープ音を鳴らさない
 setopt nobeep

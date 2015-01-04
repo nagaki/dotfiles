@@ -62,6 +62,7 @@ set autoindent
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set expandtab
 set number
 set laststatus=2
