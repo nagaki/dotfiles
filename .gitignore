@@ -12,6 +12,3 @@ _site/
 /.bundle
 /vendor/bundle
 .ruby-version
-
-# Ruby
-Gemfile.lock

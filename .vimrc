@@ -25,6 +25,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'AutoClose'
 NeoBundle 'surround.vim'
 NeoBundle 'jQuery'
+NeoBundle 'slim-template/vim-slim'
 
 "カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
@@ -120,6 +121,9 @@ noremap ; :
 
 "Ctrl+fでVimFilerを開く
 nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=34 -toggle -no-quit -simple<CR>
+
+"jjでインサートモードを抜ける
+inoremap <silent> jj <ESC>
 
 "airlineの設定
 let g:airline_powerline_fonts=1
