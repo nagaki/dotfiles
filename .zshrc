@@ -42,6 +42,7 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 alias la='ls -a'
 alias ll='ls -al'
 alias c='clear'
+alias bem='bundle exec middleman'
 
 # ビープ音を鳴らさない
 setopt nobeep
