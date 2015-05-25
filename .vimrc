@@ -26,6 +26,7 @@ NeoBundle 'AutoClose'
 NeoBundle 'surround.vim'
 NeoBundle 'jQuery'
 NeoBundle 'slim-template/vim-slim'
+NeoBundle 'stephpy/vim-php-cs-fixer'
 
 "カラースキーム
 NeoBundle 'altercation/vim-colors-solarized'
@@ -113,6 +114,8 @@ autocmd BufWritePre * ;%s/\t/  /ge
 "WordPress用の関数辞書の場所を設定
 autocmd FileType php :set dictionary=~/.vim/dict/wordpress.dict
 
+autocmd BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
+
 "カラースキーマ設定
 colorscheme desert
 
@@ -155,3 +158,11 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
 
 let g:syntastic_html_tidy_ignore_errors = ['trimming empty <span>', 'trimming empty <i>']
+
+"PHP CS Fixer
+let g:php_cs_fixer_level = 'psr2'
+let g:php_cs_fixer_config = 'default'
+let g:php_cs_fixer_php_path = 'php'
+let g:php_cs_fixer_enable_default_mapping = 1
+let g:php_cs_fixer_dry_run = 0
+let g:php_cs_fixer_verbose = 0
