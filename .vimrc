@@ -122,7 +122,7 @@ colorscheme desert
 noremap ; :
 
 "Ctrl+fでVimFilerを開く
-nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=34 -toggle -no-quit -simple -direction=botright<CR>
+nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=34 -toggle -no-quit -simple<CR>
 
 "jjでインサートモードを抜ける
 inoremap <silent> jj <ESC>
