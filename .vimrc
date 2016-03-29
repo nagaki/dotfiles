@@ -64,7 +64,7 @@ set autoindent
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf-8
-set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis,cp932
 set expandtab
 set number
 set laststatus=2
@@ -176,3 +176,16 @@ let g:php_cs_fixer_php_path = 'php'
 let g:php_cs_fixer_enable_default_mapping = 1
 let g:php_cs_fixer_dry_run = 0
 let g:php_cs_fixer_verbose = 0
+
+
+augroup vimrc-local
+  autocmd!
+  autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
+augroup END
+
+function! s:vimrc_local(loc)
+  let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
+  for i in reverse(filter(files, 'filereadable(v:val)'))
+    source `=i`
+  endfor
+endfunction
