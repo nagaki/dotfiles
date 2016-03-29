@@ -17,7 +17,6 @@ NeoBundle 'Shougo/vimfiler'
 
 "補完
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
 
 "コーディング
 NeoBundle 'mattn/emmet-vim'
@@ -123,7 +122,7 @@ colorscheme desert
 noremap ; :
 
 "Ctrl+fでVimFilerを開く
-nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=34 -toggle -no-quit -simple<CR>
+nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=34 -toggle -no-quit -simple -direction=botright<CR>
 
 "jjでインサートモードを抜ける
 inoremap <silent> jj <ESC>
@@ -149,11 +148,6 @@ let g:quickrun_config = { '_' : { 'outputter/buffer/split' : 'botright 8sp' } }
 "Emmet lang
 let g:user_emmet_settings = { 'lang' : 'ja' }
 
-"NeoSnippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
 "Clipboard Copy
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
 
@@ -166,6 +160,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors = ['trimming empty <span>', 'trimming empty <i>']
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
 "ESLint
 let g:syntastic_javascript_checkers = ['eslint']
 
