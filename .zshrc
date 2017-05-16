@@ -55,3 +55,7 @@ export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+eval $(/usr/libexec/path_helper -s)
+
+# rbenv
+eval "$(rbenv init -)"

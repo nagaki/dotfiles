@@ -5,7 +5,8 @@
     "es6": true
   },
   "ecmaFeatures": {
-    "jsx": true
+    "jsx": true,
+    "modules": true
   },
   "plugins": [
     "react"
@@ -20,6 +21,11 @@
     "no-comma-dangle": 2,
     "no-extra-boolean-cast": 1,
     "no-redeclare": 1,
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "quotes": [
+      2,
+      "single"
+    ],
+    "properties": 1
   }
 }

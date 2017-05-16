@@ -8,7 +8,7 @@ _site/
 .sass-cache/
 
 # rbenv
-/bin
+#/bin
 /.bundle
 /vendor/bundle
 .ruby-version

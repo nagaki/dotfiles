@@ -1,55 +1,53 @@
-"NeoBundle用の設定
-if has('vim_starting')
-  set nocompatible
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
+"Plug用の設定
+call plug#begin('~/.vim/plugged')
 
 "ステータスライン
-NeoBundle 'bling/vim-airline'
-
-"ファイラ
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
+Plug 'powerline/powerline'
 
 "補完
-NeoBundle 'Shougo/neocomplcache'
+Plug 'Shougo/neocomplcache'
 
 "コーディング
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'AutoClose'
-NeoBundle 'surround.vim'
-NeoBundle 'jQuery'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'stephpy/vim-php-cs-fixer'
+Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'
+Plug 'surround.vim'
+Plug 'jQuery'
+Plug 'slim-template/vim-slim'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 
 "カラースキーム
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'nginx.vim'
+Plug 'nginx.vim'
 
 "Ruby on Rails開発
-NeoBundle 'tpope/vim-endwise.git'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'kchmck/vim-coffee-script'
+Plug 'thinca/vim-quickrun'
+Plug 'tpope/vim-rails'
+Plug 'kchmck/vim-coffee-script'
 
 "シンタックスチェック
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'hail2u/vim-css3-syntax'
+Plug 'scrooloose/syntastic'
+Plug 'hail2u/vim-css3-syntax'
 
 "Git
-NeoBundle 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 "Sudo
-NeoBundle 'sudo.vim'
+Plug 'sudo.vim'
 
-call neobundle#end()
+"SQL syntax
+Plug 'changesqlcase.vim'
+
+call plug#end()
 
 filetype plugin indent on
+
+"netrwの設定
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 3
+let g:netrw_list_hide= '.*\.swp$,^\..*$'
+nnoremap <C-F> :e . <CR>
 
 "neocomplcache補完の設定
 let g:neocomplcache_enable_at_startup = 1
@@ -82,6 +80,7 @@ set splitright
 set title
 set tabstop=2
 set whichwrap=b,s,h,s,<,>,[,]
+set noshowmode
 
 "シンタックス有効
 syntax enable
@@ -108,7 +107,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 autocmd BufWritePre * :%s/\s\+$//ge
 
 "保存時にタブをスペースに変換
-autocmd BufWritePre * ;%s/\t/  /ge
+"autocmd BufWritePre * ;%s/\t/  /ge
 
 "WordPress用の関数辞書の場所を設定
 autocmd FileType php :set dictionary=~/.vim/dict/wordpress.dict
@@ -121,26 +120,14 @@ colorscheme desert
 "vimコマンド時、;:をshiftなしで:に統一する
 noremap ; :
 
-"Ctrl+fでVimFilerを開く
-nnoremap <C-F> :VimFiler -buffer-name=explorer -split -winwidth=34 -toggle -no-quit -simple<CR>
-
 "jjでインサートモードを抜ける
 inoremap <silent> jj <ESC>
 
-"airlineの設定
-let g:airline_powerline_fonts=1
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '⭡'
+"Powerline
+let g:powerline_pycmd="python3"
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
 
 "quickrun.vimを横分割で開く
 let g:quickrun_config = { '_' : { 'outputter/buffer/split' : 'botright 8sp' } }
@@ -151,19 +138,16 @@ let g:user_emmet_settings = { 'lang' : 'ja' }
 "Clipboard Copy
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"SQL syntax
+vmap <leader>uc  :call ChangeSqlCase()<cr>
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_html_tidy_ignore_errors = ['trimming empty <span>', 'trimming empty <i>']
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {'regex': 'possibly useless use of a variable in void context'}
 "ESLint
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_checkers = ['']
 
 "PHP CS Fixer
 let g:php_cs_fixer_level = 'psr2'
@@ -172,7 +156,6 @@ let g:php_cs_fixer_php_path = 'php'
 let g:php_cs_fixer_enable_default_mapping = 1
 let g:php_cs_fixer_dry_run = 0
 let g:php_cs_fixer_verbose = 0
-
 
 augroup vimrc-local
   autocmd!
